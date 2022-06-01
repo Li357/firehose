@@ -10,8 +10,8 @@
 
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/datatables/1.10.12/css/jquery.dataTables.min.css" integrity="sha256-+Z1rYa3ys5OdZNUck5G7lBvb8A13OrYwvf+d8PfEaHQ=" crossorigin="anonymous" />
   <script defer src="https://cdnjs.cloudflare.com/ajax/libs/datatables/1.10.12/js/jquery.dataTables.min.js" integrity="sha256-TX6POJQ2u5/aJmHTJ/XUL5vWCbuOw0AQdgUEzk4vYMc=" crossorigin="anonymous"></script>
-  <link rel="stylesheet" type="text/css" href="scroller.dataTables.min.css">
-  <script defer src="dataTables.scroller.min.js"></script>
+  <link rel="stylesheet" type="text/css" href="../../scroller.dataTables.min.css">
+  <script defer src="../../dataTables.scroller.min.js"></script>
 
   <script defer src="https://cdnjs.cloudflare.com/ajax/libs/js-cookie/2.1.4/js.cookie.min.js" integrity="sha256-NjbogQqosWgor0UBdCURR5dzcvAgHnfUZMcZ8RCwkk8=" crossorigin="anonymous"></script>
 
@@ -32,7 +32,7 @@
   <script defer src="https://apis.google.com/js/client.js"></script>
 
   <link rel="stylesheet" type="text/css" href="../../stylesheet.css">
-  <script defer src="spring.js"></script>
+  <script defer src="fall.js"></script>
   <script defer src="script-compiled.js"></script>
 </head>
 
@@ -60,14 +60,14 @@
     <div id="spacer3-div"></div>
     <div id="info-div">
       <img src="../../img/logo.png" height="40px" vspace="2%" />
-      <!-- <p style="margin-bottom: 12px;"><a href="semesters/s20/spring.html"><span style="font-size: 70%">Spring 2020</span></a> | Fall 2020</p> -->
+      <!-- <p style="margin-bottom: 12px;"><a href="../../semesters/s20/spring.html"><span style="font-size: 70%">Spring 2020</span></a> | Fall 2020</p> -->
       <form autocomplete=off>
         <select name="semesters" id="semesters" onchange="location = this.options[this.selectedIndex].value;">
             <option value="../../index.html">Fall 2022</option>
             <option value="../s22/spring.html">Spring 2022</option>
             <option value="../i22/iap.html">IAP 2022</option>
-            <option value="../f21/fall.html">Fall 2021</option>
-          <option value="../s21/spring.html" selected>Spring 2021</option>
+            <option value="../f21/fall.html" selected>Fall 2021</option>
+            <option value="../s21/spring.html">Spring 2021</option>
           <option value="../f20/fall.html">Fall 2020</option>
           <option value="../s20/spring.html">Spring 2020</option>
           <!-- <option value="../i20/iap.html">IAP 2020</option> -->
@@ -80,7 +80,7 @@
           <option value="../f17/fall.html">Fall 2017</option>
         </select>
       </form>
-      <!-- <span id="info-line">Apologies for the delay!</span> -->
+      <!-- <span id="info-line">A bug with GCal export on Tue/Wed was fixed.</span> -->
     </div>
     <hr>
 
@@ -182,16 +182,16 @@
       <div id="flags-div">
       <p id="class-type">
         <span class="type-span" id="nonext-span" style="display: none"><img height="16" width="16" data-src="../../img/nonext.gif" 
-          class="lazyload-img" data-toggle="tooltip" data-placement="top" title="Not offered 2021-2022" data-trigger="hover"/></span><span 
+          class="lazyload-img" data-toggle="tooltip" data-placement="top" title="Not offered 2022-2023" data-trigger="hover"/></span><span
           class="type-span" id="under-span" style="display: none"><img height="16" width="16" data-src="../../img/under.gif" 
           class="lazyload-img" data-toggle="tooltip" data-placement="top" title="Undergrad" data-trigger="hover"/> (</span><span 
           class="type-span" id="grad-span" style="display: none"><img height="16" width="16" data-src="../../img/grad.gif" 
           class="lazyload-img" data-toggle="tooltip" data-placement="top" title="Graduate" data-trigger="hover"/> (</span><span 
           class="type-span" id="fall-span" style="display: none"><img height="16" width="16" data-src="../../img/fall.gif" 
-          class="lazyload-img" data-toggle="tooltip" data-placement="top" title="Fall" data-trigger="hover"/>,</span><span 
+          class="lazyload-img" data-toggle="tooltip" data-placement="top" title="Fall" data-trigger="hover"/></span><span 
           class="type-span" id="iap-span" style="display: none">,<img height="16" width="16" data-src="../../img/iap.gif" 
           class="lazyload-img" data-toggle="tooltip" data-placement="top" title="IAP" data-trigger="hover"/></span><span 
-          class="type-span" id="spring-span" style="display: none"><img height="16" width="16" data-src="../../img/spring.gif" style="margin-left: -1px"
+          class="type-span" id="spring-span" style="display: none">,<img height="16" width="16" data-src="../../img/spring.gif" style="margin-left: -1px"
           class="lazyload-img" data-toggle="tooltip" data-placement="top" title="Spring" data-trigger="hover"/></span><span 
           class="type-span" id="summer-span" style="display: none">,<img height="16" width="16" data-src="../../img/summer.gif" 
           class="lazyload-img" data-toggle="tooltip" data-placement="top" title="Summer" data-trigger="hover"/></span><span 
@@ -255,7 +255,7 @@
     <div id="info2-div">
       <p>Questions? Issues? Feedback? <a href="mailto:edwardf@alum.mit.edu">Send me an email!</a></p>
       <p>Looking for the old Firehose? It's been moved <a href="https://firehose.guide/old_www/evaluations.html" target="_blank">here</a>.</p>
-      <p><a href="https://github.com/edfan/firehose">GitHub</a> | <a href="../../privacy.html">Privacy Policy</a></p>
+      <p><a href="https://github.com/edfan/firehose">GitHub</a> | <a href="privacy.html">Privacy Policy</a></p>
     </div>
 
   </div>

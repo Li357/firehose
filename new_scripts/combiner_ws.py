@@ -1,5 +1,6 @@
 import json
 import copy
+import datetime
 
 with open('ws') as f:
     ws = json.load(f)
@@ -9,6 +10,10 @@ with open('sublist') as f:
 
 with open('evaluations') as f:
     evals = json.load(f)
+
+with open("course_six_renumbering.json") as f:
+    course_six_renumbering = json.loads(f.read())
+    course_six_renumbering_inv = {v: k for k, v in course_six_renumbering.items()}
 
     # Special case 6.871 evals.
     # evals['6.871'] = evals['HST.956']
@@ -51,15 +56,19 @@ for c in ws:
     classes[c]['le'] = ws[c]['level']
     classes[c]['sa'] = ws[c]['same_as']
     classes[c]['mw'] = ws[c]['meets_with']
+    classes[c]['lm'] = ws[c]['limited']
     classes[c]['t'] = ws[c]['terms']
     classes[c]['pr'] = ws[c]['prereq']
     classes[c]['d'] = ws[c]['desc']
     classes[c]['n'] = ws[c]['name']
+
     classes[c]['i'] = ws[c]['in-charge']
     classes[c]['v'] = all_virtual(ws[c]['l'] + ws[c]['r'] + ws[c]['b'])
 
+
     if c in sublist:
         classes[c]['nx'] = sublist[c]['no_next']
+        classes[c]['hf'] = sublist[c]['half']
         classes[c]['rp'] = sublist[c]['repeat']
         classes[c]['u'] = sublist[c]['url']
         try:
@@ -67,19 +76,25 @@ for c in ws:
         except:
             print('failed to get final for', c)
             classes[c]['f'] = False
+        if 'old_num' in sublist[c]:
+            classes[c]['on'] = sublist[c]['old_num']
+            classes[c]['n'] = "[" + sublist[c]['old_num'] + "] " + classes[c]['n']
     else:
         classes[c]['nx'] = False
+        classes[c]['hf'] = False
         classes[c]['rp'] = False
         classes[c]['u'] = ''
         classes[c]['f'] = False
 
-    if c in evals:
+    old_c = classes[c].get('old_num', None)
+    if c in evals or (old_c and old_c in evals):
         total_rating = 0
         total_hours = 0
         total_size = 0
         terms = 0
         
-        for t in evals[c]:
+        evals_ = evals[old_c] if old_c else evals[c]
+        for t in evals_:
             if t['resp'] > 0:
                 total_rating += t['rating']
                 total_hours += t['oc_hours'] + t['ic_hours']
@@ -128,7 +143,11 @@ for c in ws:
 except Exception as e:
     print(e) """
 
+classes['22.05']['l'] = [[[[33,3],[93,3]],"24-121"]]
+classes['22.05']['r'] = [[[[124,2]],"24-121"]]
+
 with open('full.json', 'w') as f:
+    f.write('var last_update = "' + datetime.datetime.now().strftime('%Y-%m-%d %l:%M %p') + '";\n')
     f.write('var classes = ')
     json.dump(classes, f, separators=(',', ':'))
     f.write(';')
